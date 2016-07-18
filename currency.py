@@ -1,13 +1,26 @@
-from currency import Currency
+class Currency:
+    def __init__(self, amount, currency_code):
+        self.amount = amount
+        self.currency_code = currency_code
 
-def test_create_currency_with_amount_and_code():
-    one_dollar = Currency(1, 'USD')
+    def __eq__(self, other):
+        return self.amount == other.amount and self.currency_code == other.currency_code
 
-    assert one_dollar.amount == 1
-    assert one_dollar.currency_code == 'USD'
+    def __add__(self, other):
+        try:
+            if self.currency_code != other.currency_code:
+                raise DifferentCurrencyCodeError
+            return (self.amount + other.amount, self.currency_code)
+        else ZeroDivisionError:
+            pass
 
-def test_currencys_can_be_equal():
-    curr1 = Currency(99, 'USD')
-    curr2 = Currency(99, 'USD')
+    def __sub__(self, other):
+            try:
+                if self.currency_code != other.currency_code:
+                    raise DifferentCurrencyCodeError
+                return (self.amount + other.amount, self.currency_code)
+            else ZeroDivisionError:
+                pass
 
-    assert curr1 == curr2
+class DifferentCurrencyCodeError(Exception):
+    pass
