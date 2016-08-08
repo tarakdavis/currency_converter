@@ -14,7 +14,7 @@ Currency() able to take one argument with a currency symbol embedded in it, like
 
 CurrencyConverter objects
 
-Initialized with a dictionary of currency codes to conversion rates (see link to rates below).
+Initialized with a dictionary of currency codes to conversion rates.
 Able to take a Currency object and a requested currency code that is the same currency code as the Currency object's and return a Currency object equal to the one passed in. That is, currency_converter.convert(Currency(1, 'USD'), 'USD') == Currency(1, 'USD').
 Able to take a Currency object that has one currency code it knows and a requested currency code and return a new Currency object with the right amount in the new currency code.
 Able to be created with a dictionary of three or more currency codes and conversion rates. An example would be this: {'USD': 1.0, 'EUR': 0.74, 'JPY': 120.0}, which implies that a dollar is worth 0.74 euros and that a dollar is worth 120 yen, but also that a euro is worth 120/0.74 = 162.2 yen.

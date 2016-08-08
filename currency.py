@@ -1,5 +1,5 @@
 class Currency:
-    def __init__(self, amount, currency_code = 'USD'):
+    def __init__(self, amount, currency_code='USD'):
         self.amount = amount
         self.currency_code = currency_code
 
@@ -11,7 +11,6 @@ class Currency:
             raise DifferentCurrencyCodeError
         return (self.amount + other.amount, self.currency_code)
 
-
     def __sub__(self, other):
         if self.currency_code != other.currency_code:
             raise DifferentCurrencyCodeError
@@ -19,7 +18,6 @@ class Currency:
 
     def __mul__(self, amount):
         return (self.amount * amount, self.currency_code)
-
 
     def assign_currency_code_to_symbol(self):
         symbols = {'$': 'USD', '€': 'EUR', '¥': 'JPY'}
